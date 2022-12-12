@@ -16,16 +16,16 @@ describe("Cypress Task Test Cases", () => {
     BasePage.openNetworkSelectionMenu()
     BasePage.openTestnetsList()
     BasePage.selectGoerliNetwork()
-    BasePage.accessConnectToWalletSection()
+    BasePage.connectToWalletFromMainPage()
     BasePage.selectMockWallet()
 
   })
-  it.only ("Attempt to Claim Tokens from the Dashboard and validate error message", () => {
+  it ("Attempt to Claim Tokens from the Dashboard and validate error message", () => {
     BasePage.visitWithMockedWallet("/")
     BasePage.openNetworkSelectionMenu()
     BasePage.openTestnetsList()
     BasePage.selectGoerliNetwork()
-    BasePage.accessConnectToWalletSection()
+    BasePage.connectToWalletFromMainPage()
     BasePage.selectMockWallet()
     BasePage.goToClaim()
     BasePage.attemptToClaimTokens()

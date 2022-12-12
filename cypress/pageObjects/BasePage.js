@@ -4,7 +4,7 @@ import {ethers} from "ethers";
 const NETWORK_SELECTION_BUTTON ="[data-cy=top-bar-network-button]"
 const TESTNETS_LIST_BUTTON ="[data-cy=testnets-button]"
 const GOERLI_BUTTON ="[data-cy=goerli-button]"
-const CONNECT_WALLET_BUTTON = ".css-xhnfv3 > [data-cy=connect-wallet-button]"
+const CONNECT_WALLET_BUTTON_FROM_MAIN_PAGE = ".css-xhnfv3 > [data-cy=connect-wallet-button]"
 const MOCK_WALLET = "[data-testid=rk-wallet-option-mock]"
 const CONNECTED_MESSAGE = ".MuiTypography-body2"
 const OPEN_CLAIM_SECTION = ".MuiListItemSecondaryAction-root > .MuiButtonBase-root"
@@ -59,8 +59,8 @@ export class BasePage {
         this.click(GOERLI_BUTTON)
     }
 
-    static accessConnectToWalletSection() {
-        this.click(CONNECT_WALLET_BUTTON)
+    static connectToWalletFromMainPage() {
+        this.click(CONNECT_WALLET_BUTTON_FROM_MAIN_PAGE)
     }
 
     static selectMockWallet() {
