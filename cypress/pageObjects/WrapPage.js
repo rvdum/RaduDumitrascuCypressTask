@@ -8,6 +8,8 @@ const TOKEN_SEARCH_FIELD = "[data-cy=token-search-input]"
 const ETH_TOKEN = "[data-cy=ETH-list-item]"
 const SELECT_MAX_AMOUNT = "[data-cy=max-button]"
 const ERROR_MESSAGE_WRAP_MAX_ETH_AMOUNT = ".MuiAlert-message"
+const TOKEN_BALANCE_INPUT_FIELD = "[data-cy=wrap-input] > .MuiInputBase-input"
+const ERROR_MESSAGE_WRAP_AMOUNT_HIGHER_THAN_OWNED = ".MuiAlert-message"
 
 export class WrapPage {
     static visitWithMockedWallet(page) {
@@ -45,16 +47,33 @@ export class WrapPage {
         this.click(CONNECT_WALLET_BUTTON_FROM_WRAP_PAGE)
     }
 
-    static selectEthToken() {
+    static selectEthToken(text) {
         this.click(TOKEN_SELECTION_MENU)
-        this.type(TOKEN_SEARCH_FIELD, "eth")
+        this.type(TOKEN_SEARCH_FIELD, text)
         this.click(ETH_TOKEN)
-        this.click(SELECT_MAX_AMOUNT)
+
     }
 
     static validateErrorMessageWhenUsingMaxEthAmount(message) {
+        cy.get(SELECT_MAX_AMOUNT).should("be.visible")
+        this.click(SELECT_MAX_AMOUNT)
         this.hasText(ERROR_MESSAGE_WRAP_MAX_ETH_AMOUNT,message)
 
+    }
+
+    static inputLargerEthAmount() {
+        function generateRandomFloat(min,max, places){
+            let randomValue = (Math.random() * (max - min + 1)) + min;
+            return Number.parseFloat(randomValue).toFixed(places)
+        }
+        let randomValue = generateRandomFloat(0.1, 100,2)
+        this.click(TOKEN_BALANCE_INPUT_FIELD)
+        this.type(TOKEN_BALANCE_INPUT_FIELD,randomValue)
+    }
+
+    static validateErrorMessageWhenUsingMoreEthThanOwned(message) {
+        cy.get(ERROR_MESSAGE_WRAP_AMOUNT_HIGHER_THAN_OWNED).should("be.visible")
+        this.hasText(ERROR_MESSAGE_WRAP_AMOUNT_HIGHER_THAN_OWNED, message)
     }
 }
 
