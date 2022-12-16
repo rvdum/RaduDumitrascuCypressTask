@@ -4,7 +4,7 @@ import {ethers} from "ethers";
 const NETWORK_SELECTION_BUTTON ="[data-cy=top-bar-network-button]"
 const TESTNETS_LIST_BUTTON ="[data-cy=testnets-button]"
 const GOERLI_BUTTON ="[data-cy=goerli-button]"
-const CONNECT_WALLET_BUTTON_FROM_MAIN_PAGE = ".css-xhnfv3 > [data-cy=connect-wallet-button]"
+const CONNECT_WALLET_BUTTON_FROM_MAIN_PAGE = ".MuiPaper-root > .MuiBox-root > [data-cy=connect-wallet-button]"
 const MOCK_WALLET = "[data-testid=rk-wallet-option-mock]"
 const CONNECTED_MESSAGE = ".MuiTypography-body2"
 const OPEN_CLAIM_SECTION = ".MuiListItemSecondaryAction-root > .MuiButtonBase-root"
@@ -42,7 +42,6 @@ export class BasePage {
     static hasText(selector, text) {
         cy.get(selector).should('have.text', text).and('be.visible')
     }
-
     // Making my life easier ^
 
     static openNetworkSelectionMenu() {
@@ -73,12 +72,10 @@ export class BasePage {
     }
 
     static attemptToClaimTokens() {
-        cy.wait(5000)
         cy.get(".MuiDialogContent-root").contains("Claim").click()
     }
 
     static validateErrorMessage(message) {
-        this.hasText(ERROR_MESSAGE_CLAIM_TOKENS,message)
+        cy.get(ERROR_MESSAGE_CLAIM_TOKENS).should('have.text', message).and('be.visible')
     }
 }
-

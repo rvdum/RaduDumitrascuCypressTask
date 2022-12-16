@@ -1,6 +1,7 @@
 
 import HDWalletProvider from "@truffle/hdwallet-provider";
 import {ethers} from "ethers";
+import * as testData from "../fixtures/stored_values"
 
 const CONNECT_TO_WALLET_FROM_SEND_PAGE = "[data-cy=connect-wallet-button]"
 const RECEIVER_FIELD = "[data-cy=address-button]"
@@ -9,7 +10,7 @@ const SELECT_TOKEN_BUTTON = "[data-cy=select-token-button]"
 const TOKEN_SEARCH_FIELD = "[data-cy=token-search-input]"
 const TOKEN_SELECTION_INPUT = ".MuiDialogContent-root > .MuiList-root"
 const FLOW_RATE_INPUT = "[data-cy=flow-rate-input]"
-const ERROR_MESSAGE_SEND_STREAM = ".css-tq2x9n > .MuiAlert-message"
+const SEND_CARD = "[data-cy=send-card]"
 
 
 
@@ -38,14 +39,6 @@ export class SendPage {
         cy.get(selector).type(message)
     }
 
-    static isVisible(selector) {
-        cy.get(selector).should("be.visible")
-    }
-
-    static hasText(selector, text) {
-        cy.get(selector).should('have.text', text).and('be.visible')
-    }
-
 // Making my life easier ^
 
     static connectToWalletFromSendPage() {
@@ -56,15 +49,14 @@ export class SendPage {
         this.click(RECEIVER_FIELD)
         this.click(ADDRESS_INPUT_FIELD)
         this.type(ADDRESS_INPUT_FIELD, text)
-
     }
 
     static addFormDetails() {
         this.click(SELECT_TOKEN_BUTTON)
-        const token_list = ["TDLx", "ETHx", "ZYA", "fUSDCx", "fTUSDx", "NTDL", "fDAlx"];
-        const random_token = token_list[Math.floor(Math.random() * token_list.length)]
+        const tokens = testData.token_list;
+        const randomToken = tokens[Math.floor(Math.random() * testData.token_list.length)]
 
-        this.type(TOKEN_SEARCH_FIELD, random_token)
+        this.type(TOKEN_SEARCH_FIELD, randomToken)
         this.click(TOKEN_SELECTION_INPUT)
         this.click(FLOW_RATE_INPUT)
 
@@ -77,12 +69,6 @@ export class SendPage {
     }
 
     static validateSendStreamToYourselfErrorMessage(message) {
-        cy.get(ERROR_MESSAGE_SEND_STREAM).should("be.visible")
-        this.hasText(ERROR_MESSAGE_SEND_STREAM, message)
-        
+        cy.get(SEND_CARD).contains(message).should("be.visible")
     }
 }
-
-
-
-

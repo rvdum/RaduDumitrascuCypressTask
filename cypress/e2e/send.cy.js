@@ -1,6 +1,6 @@
 import {BasePage} from "../pageObjects/BasePage";
 import {SendPage} from "../pageObjects/SendPage";
-import {WrapPage} from "../pageObjects/WrapPage";
+import * as testData from "../fixtures/stored_values"
 
 describe ("Send Page Tests", () => {
 
@@ -11,7 +11,7 @@ describe ("Send Page Tests", () => {
         BasePage.selectGoerliNetwork()
         SendPage.connectToWalletFromSendPage()
         BasePage.selectMockWallet()
-        SendPage.addReceiverAddress("0xD92ea85056AB223a279Cd8dEf240cB4F0F7a24aa")
+        SendPage.addReceiverAddress(testData.receiver_address)
         SendPage.addFormDetails()
         SendPage.validateSendStreamToYourselfErrorMessage("You can't stream to yourself.")
     })

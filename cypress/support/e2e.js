@@ -15,6 +15,7 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import addContext from "mochawesome/src/addContext";
 
 Cypress.on("uncaught:exception", (err, runnable) => {
     if (err.name === "ConnectorNotFoundError" ||
@@ -23,3 +24,11 @@ Cypress.on("uncaught:exception", (err, runnable) => {
         return false
     }
 });
+
+Cypress.on("test:after:run",(test,runnable) => {
+    if(test.state === "failed"){
+        const screenshotDir =`assets/screenshots/${Cypress.spec.name}/${runnable.parent.title} -- ${test.title} (failed).png}`
+        addContext({ test }, screenshotDir)
+    }
+})
+

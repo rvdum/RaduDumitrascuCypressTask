@@ -51,14 +51,12 @@ export class WrapPage {
         this.click(TOKEN_SELECTION_MENU)
         this.type(TOKEN_SEARCH_FIELD, text)
         this.click(ETH_TOKEN)
-
     }
 
     static validateErrorMessageWhenUsingMaxEthAmount(message) {
         cy.get(SELECT_MAX_AMOUNT).should("be.visible")
         this.click(SELECT_MAX_AMOUNT)
         this.hasText(ERROR_MESSAGE_WRAP_MAX_ETH_AMOUNT,message)
-
     }
 
     static inputLargerEthAmount() {
@@ -76,5 +74,3 @@ export class WrapPage {
         this.hasText(ERROR_MESSAGE_WRAP_AMOUNT_HIGHER_THAN_OWNED, message)
     }
 }
-
-
