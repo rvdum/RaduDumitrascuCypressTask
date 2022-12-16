@@ -1,0 +1,277 @@
+{
+  "stats": {
+    "suites": 3,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-12-16T10:39:37.192Z",
+    "end": "2022-12-16T10:40:20.672Z",
+    "duration": 28590,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "134d9ecb-048b-41c6-95c3-f9f99fe60947",
+      "title": "",
+      "fullFile": "cypress/e2e/base.cy.js",
+      "file": "cypress/e2e/base.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cd5461e1-8be0-4465-ac66-581a1389cc1e",
+          "title": "Cypress Task Test Cases",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Access the webpage and Select the Goerli network",
+              "fullTitle": "Cypress Task Test Cases Access the webpage and Select the Goerli network",
+              "timedOut": null,
+              "duration": 2382,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//To get a wallet connected during the test cases , use visitWithMockedWallet() function instead of normal cy.visit()\n//Otherwise you won't be able to automate the steps or see the error messages\n_BasePage.BasePage.visitWithMockedWallet(\"/\");\n_BasePage.BasePage.openNetworkSelectionMenu();\n_BasePage.BasePage.openTestnetsList();\n_BasePage.BasePage.selectGoerliNetwork();",
+              "err": {},
+              "uuid": "773c2699-2cd8-4ede-9513-ea81cda29863",
+              "parentUUID": "cd5461e1-8be0-4465-ac66-581a1389cc1e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Connect to the Mock wallet",
+              "fullTitle": "Cypress Task Test Cases Connect to the Mock wallet",
+              "timedOut": null,
+              "duration": 1952,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_BasePage.BasePage.visitWithMockedWallet(\"/\");\n_BasePage.BasePage.openNetworkSelectionMenu();\n_BasePage.BasePage.openTestnetsList();\n_BasePage.BasePage.selectGoerliNetwork();\n_BasePage.BasePage.connectToWalletFromMainPage();\n_BasePage.BasePage.selectMockWallet();",
+              "err": {},
+              "uuid": "a495bf99-5487-4e75-bed1-053ce9bd5706",
+              "parentUUID": "cd5461e1-8be0-4465-ac66-581a1389cc1e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Attempt to Claim Tokens from the Dashboard and validate error message",
+              "fullTitle": "Cypress Task Test Cases Attempt to Claim Tokens from the Dashboard and validate error message",
+              "timedOut": null,
+              "duration": 7200,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_BasePage.BasePage.visitWithMockedWallet(\"/\");\n_BasePage.BasePage.openNetworkSelectionMenu();\n_BasePage.BasePage.openTestnetsList();\n_BasePage.BasePage.selectGoerliNetwork();\n_BasePage.BasePage.connectToWalletFromMainPage();\n_BasePage.BasePage.selectMockWallet();\n_BasePage.BasePage.goToClaim();\n_BasePage.BasePage.attemptToClaimTokens();\n_BasePage.BasePage.validateErrorMessage(\"Something went wrong, please try again\");",
+              "err": {},
+              "uuid": "747d510f-06de-4269-ab1c-11593fabf141",
+              "parentUUID": "cd5461e1-8be0-4465-ac66-581a1389cc1e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "773c2699-2cd8-4ede-9513-ea81cda29863",
+            "a495bf99-5487-4e75-bed1-053ce9bd5706",
+            "747d510f-06de-4269-ab1c-11593fabf141"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 11534,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "02b3c4c8-5d68-47c0-babf-3f3345b10b45",
+      "title": "",
+      "fullFile": "cypress/e2e/send.cy.js",
+      "file": "cypress/e2e/send.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "436aeb19-9856-49c4-a1b2-a49a5cfc5c01",
+          "title": "Send Page Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Attempt to send and receive from the same wallet",
+              "fullTitle": "Send Page Tests Attempt to send and receive from the same wallet",
+              "timedOut": null,
+              "duration": 4711,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_SendPage.SendPage.visitWithMockedWallet(\"/send\");\n_BasePage.BasePage.openNetworkSelectionMenu();\n_BasePage.BasePage.openTestnetsList();\n_BasePage.BasePage.selectGoerliNetwork();\n_SendPage.SendPage.connectToWalletFromSendPage();\n_BasePage.BasePage.selectMockWallet();\n_SendPage.SendPage.addReceiverAddress(testData.receiver_address);\n_SendPage.SendPage.addFormDetails();\n_SendPage.SendPage.validateSendStreamToYourselfErrorMessage(\"You can't stream to yourself.\");",
+              "err": {},
+              "uuid": "fa38f420-5cae-4e46-ac48-43202fcd0b4a",
+              "parentUUID": "436aeb19-9856-49c4-a1b2-a49a5cfc5c01",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "fa38f420-5cae-4e46-ac48-43202fcd0b4a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4711,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "0d9f931f-dd50-4edc-a039-287966dd45c2",
+      "title": "",
+      "fullFile": "cypress/e2e/wrap.cy.js",
+      "file": "cypress/e2e/wrap.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "22eff29d-495d-4398-8162-dae1d8041115",
+          "title": "Wrap Page Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Attempt to use the max button with ETH as the selected token and validate the error message",
+              "fullTitle": "Wrap Page Tests Attempt to use the max button with ETH as the selected token and validate the error message",
+              "timedOut": null,
+              "duration": 6616,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_WrapPage.WrapPage.visitWithMockedWallet(\"/wrap?upgrade\");\n_BasePage.BasePage.openNetworkSelectionMenu();\n_BasePage.BasePage.openTestnetsList();\n_BasePage.BasePage.selectGoerliNetwork();\n_WrapPage.WrapPage.connectToWalletFromWrapPage();\n_BasePage.BasePage.selectMockWallet();\n_WrapPage.WrapPage.selectEthToken(\"eth\");\n_WrapPage.WrapPage.validateErrorMessageWhenUsingMaxEthAmount(\"You are wrapping out of native asset used for gas. You need to leave some gas tokens for the transaction to succeed.\");",
+              "err": {},
+              "uuid": "ac4c6c03-57dc-48e9-b924-0988c1f7a36f",
+              "parentUUID": "22eff29d-495d-4398-8162-dae1d8041115",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Attempt to use a larger ETH balance than owned and validate the error message",
+              "fullTitle": "Wrap Page Tests Attempt to use a larger ETH balance than owned and validate the error message",
+              "timedOut": null,
+              "duration": 5729,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_WrapPage.WrapPage.visitWithMockedWallet(\"/wrap?upgrade\");\n_BasePage.BasePage.openNetworkSelectionMenu();\n_BasePage.BasePage.openTestnetsList();\n_BasePage.BasePage.selectGoerliNetwork();\n_WrapPage.WrapPage.connectToWalletFromWrapPage();\n_BasePage.BasePage.selectMockWallet();\n_WrapPage.WrapPage.selectEthToken(\"eth\");\n_WrapPage.WrapPage.inputLargerEthAmount();\n_WrapPage.WrapPage.validateErrorMessageWhenUsingMoreEthThanOwned(\"You do not have enough balance.\");",
+              "err": {},
+              "uuid": "086ee8d8-8da9-4d81-9d70-e16ee0db45b3",
+              "parentUUID": "22eff29d-495d-4398-8162-dae1d8041115",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ac4c6c03-57dc-48e9-b924-0988c1f7a36f",
+            "086ee8d8-8da9-4d81-9d70-e16ee0db45b3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 12345,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/task",
+        "html": false,
+        "overwrite": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}

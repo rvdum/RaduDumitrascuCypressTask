@@ -6,7 +6,7 @@ module.exports = defineConfig({
     baseUrl: "https://app.superfluid.finance",
     reporter: "mochawesome",
     reporterOptions: {
-      reportDir: "cypress/results",
+      reportDir: "cypress/task",
       html: false,
       overwrite: false
     },
